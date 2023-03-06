@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Otp</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- MATERIAL DESIGN ICONIC FONT -->
+	<link rel="stylesheet" href="/signup/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+	<!-- STYLE CSS -->
+	<link rel="stylesheet" href="/signup/css/style.css">
+	<link href="/images/logo final 2.jpeg" rel="icon">
+</head>
+
+<body>
+
+	<div class="wrapper" style="background-image: url('/signup/images/bg.jpeg');">
+		<div class="inner" style="opacity:.7;">
+			<div class="image-holder">
+				<img src="/signup/images/logofinal.jpeg" alt="">
+			</div>
+			<form action="/verifyOTP" method="post">
+				<h3>OTP Verification</h3>
+
+				<div class="form-wrapper">
+					<input type="hidden" placeholder="Username" name="username" class="form-control"
+						value="<%= userInfo.username %>">
+
+				</div>
+				<div class="form-wrapper">
+					<input type="email" placeholder="Email Address" name="email" class="form-control"
+						value="<%=userInfo.email %>">
+
+				</div>
+				<div class="form-wrapper">
+					<input type="otp" placeholder="OTP" name="otp" class="form-control">
+					<i class="zmdi zmdi-lock"></i>
+				</div>
+				<div class="form-wrapper">
+					<input type="hidden" class="form-control" name="gender" value="<%= userInfo.gender %>">
+
+				</div>
+
+				<div class="form-wrapper">
+					<input type="hidden" placeholder="Password" class="form-control" name="password"
+						value="<%= userInfo.password %>">
+
+				</div>
+
+				<div>
+					<input type="hidden" name="status" value="<%= userInfo.status %>">
+				</div>
+
+
+				<button type="submit">Register
+					<i class="zmdi zmdi-arrow-right"></i>
+				</button>
+				<div>
+					<h4 style=" margin: 20px 40px 30px 60px !important"><a href="/resendOtp"
+							style="text-decoration: none;">resend0TP</a>
+					</h4>
+				</div>
+			</form>
+		</div>
+	</div>
+
+</body>
+
+</html>

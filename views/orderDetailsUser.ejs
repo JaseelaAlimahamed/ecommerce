@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width shrink-to-fit=no">
+    <!-- <title>Profile</title> -->
+    <link href="/images/logo final 2.jpeg" rel="icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <link href="/stylesheets/profile.css" rel="stylesheet">
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="/users/css/bootstrap.css">
+    <!-- font awesome style -->
+    <link href="/users/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="/users/css/style.css" rel="stylesheet">
+    <!-- responsive style -->
+    <link href="/users/css/responsive.css" rel="stylesheet">
+</head>
+
+<body style="background-image: url(/users/images/bg-H33kZvMKi-transformed.jpeg);  min-height: 100vh;
+background-size: cover;
+background-repeat: no-repeat;">
+<section class="order_details section_gap">
+    <div class="container">
+      <div class="col-12">
+        <div
+          class="card"
+          style="border-radius: 10px"
+          style="background: #ecc9eb"
+        >
+          <div class="card-header px-4 py-5" style="background:#427677; opacity: .5;">
+            <h5 class="text mb-0" style="font-size: larger;text-decoration-color: #f70d0d;">
+              Thanks for your Order,
+              <span style="color: #a8729a"><%=productData[0]?.name%></span>!
+            </h5>
+          </div>
+          <div
+            class="card-body p-4"
+            style="background:#427677;border-radius: 10px"
+          >
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0" style="color: #ffffff">
+                All orders
+              </p>
+              <p class="small text-muted mb-0">Moonji E-store</p>
+            </div>
+            <% productData.forEach((product)=>{ %>
+            <div class="card shadow-0 border mb-4">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-2">
+                    <img style="width:5em; height:5em"
+                      src="/<%= product.productDetail.image[0].path %>"
+                      class="img-fluid"
+                      alt="Product image"
+                    />
+                    <a
+                      href="/orderedProduct/<%= product._id %>"
+                      style="text-decoration: #a8729a;"
+                      >Track
+                    </a>
+                  </div>
+                  <div
+                    class="col-md-2 text-center d-flex justify-content-center align-items-center"
+                  >
+                    <p class="mb-0"><%=product.productDetail.name%></p>
+                  </div>
+                  <div
+                    class="col-md-2 text-center d-flex justify-content-center align-items-center"
+                  >
+                    <p class="mb-0">
+                      <%= product.category_name.category_name %>
+                    </p>
+                  </div>
+                  <div
+                    class="col-md-2 text-center d-flex justify-content-center align-items-center"
+                  >
+                    <p class="text-muted mb-0">
+                      Payment: <%= product.paymentMethod %>
+                    </p>
+                  </div>
+                  <div
+                    class="col-md-2 text-center d-flex justify-content-center align-items-center"
+                  >
+                    <p class="text-muted mb-0">
+                      <% if(product.orderStatus=='placed'
+                      ||product.orderStatus=='pending'
+                      ||product.orderStatus=='shipped'||product.orderStatus=='out for Delivery'
+                      ){ %>
+                      <a
+                        data-bs-toggle="modal"
+                        class="btn btn-outline-danger"
+                        data-bs-target="#exampleModal-<%=product._id%>"
+                      >
+                        Cancel
+                      </a>
+                      <% }else if(product.orderStatus=='delivered'){%>
+                      <b>Delivered</b>
+                      <% }else {%>
+                        <b>Order Cancelled</b>
+                      <% } %>
+                      <!-- Modal -->
+                    </p>
+
+                    <div
+                      class="modal fade modal-centered"
+                      id="exampleModal-<%=product._id%>"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                    >
+                      <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                              Confirmation
+                            </h1>
+
+                          </div>
+                          <div class="modal-body">
+                            Are you sure you want to cancel this order ?
+                          </div>
+                          <div class="modal-footer">
+                            <button
+                              type="button"
+                              class="btn btn-secondary"
+                              data-bs-dismiss="modal"
+                            >
+                              Close
+                            </button>
+                            <a href="/cancelOrder/<%=product._id%>"
+                              ><button type="button" class="btn btn-danger">
+                                Cancel
+                              </button></a>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr
+                  class="mb-4"
+                  style="background-color: #e0e0e0; opacity: 1"
+                />
+                <div class="row d-flex align-items-center">
+                  <div class="col-md-2">
+                    <p class="text-muted mb-0">
+                      Total Amount: <%= product.totalAmount%> ₹
+                    </p>
+                  </div>
+                  <div class="col-md-10">
+
+                    <div class="d-flex justify-content-right">
+                      <p class="text-muted mt-1 mb-0 small ms-xl-5">
+                        status : <%=product.paymentStatus%>
+                      </p>
+                      <p class="text-muted mt-1 ml-5 mb-0 small ms-xl-5">
+                        Order Date : <%=product.orderDate%>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="/productDetails/js/main.js"></script>
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/js/ruang-admin.min.js"></script>
+    <script src="/vendor/chart.js/Chart.min.js"></script>
+    <script src="/js/demo/chart-area-demo.js"></script>
+
+    <script src="/users/js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

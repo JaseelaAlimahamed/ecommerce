@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shoping Cart</title>
+    <link href="/images/logo final 2.jpeg" rel="icon">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <link rel="stylesheet" type="text/css" href="/users/css/bootstrap.css" />
+    <!-- Site Metas -->
+    <!-- font awesome style -->
+    <link href="/users/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/users/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="/users/css/responsive.css" rel="stylesheet" />
+
+    
+
+    
+    <!--===============================================================================================-->
+    
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/fonts/linearicons-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/productDetails/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/productDetails/css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+
+    <!-- header section strats -->
+    <header class="header_section" style="background-color: #427677;">
+        <div class="container" style="background-color: #427677;">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="/"><img width="250"
+                        src="/images/logo_final_2-removebg-preview-removebg-preview (2).png" alt="#">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <% categories.forEach(function(category){%>
+                            <% if (category.status) { %>
+                                <li class="nav-item">
+                                    <a class="nav-link px-2"
+                                        href="/spectacular/<%=category.categoryname%>/<%= category._id %> ">
+                                        <%= category.categoryname %>
+                                    </a>
+                                </li>
+                                <% } %>
+                                    <% }) %>
+
+                                        <% if(session){ %>
+                                            <li class="nav-item">
+                                                <a class="nav-link px-1" href="/cart/<%=session._id %>">
+                                                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                        viewBox="0 0 456.029 456.029"
+                                                        style="enable-background:new 0 0 456.029 456.029;"
+                                                        xml:space="preserve">
+                                                        <g>
+                                                            <g>
+                                                                <path
+                                                                    d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
+                                                    c29.184,0,53.248-23.552,53.248-53.248C398.336,362.926,374.784,338.862,345.6,338.862z" />
+                                                            </g>
+                                                        </g>
+                                                        <g>
+                                                            <g>
+                                                                <path d="M439.296,84.91c-1.024,0-2.56-0.512-4.096-0.512H112.64l-5.12-34.304C104.448,27.566,84.992,10.67,61.952,10.67H20.48
+                                                 C9.216,10.67,0,19.886,0,31.15c0,11.264,9.216,20.48,20.48,20.48h41.472c2.56,0,4.608,2.048,5.12,4.608l31.744,216.064
+                                                 c4.096,27.136,27.648,47.616,55.296,47.616h212.992c26.624,0,49.664-18.944,55.296-45.056l33.28-166.4
+                                                 C457.728,97.71,450.56,86.958,439.296,84.91z" />
+                                                            </g>
+                                                        </g>
+                                                        <g>
+                                                            <g>
+                                                                <path
+                                                                    d="M215.04,389.55c-1.024-28.16-24.576-50.688-52.736-50.688c-29.696,1.536-52.224,26.112-51.2,55.296
+                                                    c1.024,28.16,24.064,50.688,52.224,50.688h1.024C193.536,443.31,216.576,418.734,215.04,389.55z" />
+                                                            </g>
+                                                        </g>
+                                                        <g>
+                                                        </g>
+                                                    </svg>
+                                                </a>
+
+                                            </li>
+
+                                            <li class="nav-item">
+                                                <a class="nav-link px-1" href="/profile/<%=session._id%>">
+                                                    <i class="material-icons"
+                                                        style="font-size:1.5rem;color:black">person
+                                                </a>
+                                                </i>
+
+
+                                                <% }else{ %>
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link px-1 " href="/signin" style="color: black;">LogIn</a>
+                                            </li>
+                                            <% } %>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart -->
+    <!-- breadcrumb -->
+    <div class="container">
+        <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
+            <a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+                Home
+                <i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
+            </a>
+
+            <span class="stext-109 cl4">
+                Shoping Cart
+            </span>
+        </div>
+    </div>
+
+
+    <!-- Shoping Cart -->
+
+
+    <div class="container">
+
+        <div class="row">
+            <% if (locals.countInCart!==0) { %>
+                <div class="col-lg-11 col-xl-8 m-lr-auto m-b-50 mx-3 ">
+
+                    <div class="wrap-table-shopping-cart">
+
+                        <table class="table-shopping-cart p-1 d-flex justify-content-around">
+                            <tr class="table_head">
+                                <th class="column-1">Product</th>
+                                <th class="column-2"></th>
+                                <th class="column-3">Pricet<h>
+                                <th class="column-4 d-flex justify-content-center ">Quantity</th>
+                            
+                                <th class="column-5 "> Action</th>
+                            </tr>
+                            <% productData.forEach((product)=>{%>
+                                <tr class="table_row">
+                                    <td class="column-1">
+                                        <div class="how-itemcart1">
+                                            <a><img src="/<%= product.productDetail.image[0].path%>" alt="IMG"></a>
+                                        </div>
+                                    </td>
+                                    <td class="column-2">
+                                        <%= product.productDetail.productname %>
+                                    </td>
+                                    <td class="column-3">Rs<%= product.productDetail.price %>
+                                    </td>
+                                    <td class="column-4">
+                                        <div class="wrap-num-product d-flex justify-content-center m-l-auto m-r-0">
+
+                                            <%var num=product.productQuantity %>
+                                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m"
+                                                data-cart-id="<%=product._id %>"
+                                                data-product-id="<%= product.productDetail._id %> " data-count="-1"
+                                                data-value="<%= num%>">
+                                                <i class="fs-16 zmdi zmdi-minus"></i>
+                                            </div>
+
+
+
+                                            <input class="mtext-104 cl3 txt-center num-product"
+                                                id="<%= product.productDetail._id %>" type="number" name="num-product1"
+                                                value="<%= product.productQuantity %>">
+
+                                            
+                                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"data-cart-id="<%=product._id %>"
+                                                    data-product-id="<%= product.productDetail._id %> " data-count="+1"
+                                                    data-value="<%=num %>">
+                                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                                </div>
+                                            
+                                        </div>
+                                    </td>
+                                    <% var a=product.productDetail.price %>
+                                        <% var b=product.productQuantity %>
+                                            <% var c=a*b %>
+                                                <%let d=c.toFixed(2)%>
+                                                    
+                                                    <td class="p-5"><a href="javascript:void(0);" data-toggle="modal"
+                                                            data-target="#deletecartproduct">Remove</a></td>
+
+                                </tr>
+                                <div class="modal" id="deletecartproduct" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabelLogout" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabelLogout">
+                                                    Confirmation
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Are you sure you want to
+                                                    delete this Product from Yourcart?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-primary"
+                                                    data-dismiss="modal">Cancel</button>
+                                                <a href="/deletecart/<%= product._id%>/<%=product.productDetail._id %>"
+                                                    class="btn btn-primary">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <% }) %>
+                        </table>
+
+                    </div>
+
+                </div>
+                <% if (locals.countInCart!==0) { %>
+                    <div class="col" style="width: 1rem">
+                        <div class="row">
+                            <div class="col ml-md-3" style="border: solid; padding: 2rem">
+                                <div class="row">
+                                    <div class="col-md-12 text-right border-bottom mb-3">
+                                        <h3 class="text-black h4 text-uppercase">Cart Totals</h3>
+                                    </div>
+                                </div>
+                                <div class="row mb-3 d-none">
+                                    <div class="col-md-6">
+                                        <span class="text-black">Subtotal</span>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <% if(locals.sum!==0){%>
+                                            <strong id="sum" class=" sum text-black">
+                                               Rs <%=sum%> 
+                                            </strong>
+                                            <% } else { %>
+                                                <strong class="text-black">0 ₹</strong>
+                                                <%}%>
+                                    </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <div class="col-md-6">
+                                        <span class="text-black">Shipping Charge</span>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+
+                                        <strong class="text-black">0₹(free delivery)</strong>
+
+                                    </div>
+                                </div>
+                                <div class="row mb-5">
+                                    <div class="col-md-6">
+                                        <span class="text-black">Total</span>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                       
+                                                <strong id="netamount" class="netamount text-black">
+                                                 Rs   <%=sum%> 
+                                                </strong>
+                                            
+                                    </div>
+
+                                </div>
+                                <a href="/checkout"><button
+                                        class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04">
+                                        Proceed to Checkout
+                                    </button></a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+
+                        <% } else { %>
+                            <div class="p-3 m-3">
+                                <img src="/images/emptycart.png" alt="">
+                                <h2 class="text-center text-primary">Oops!</h2>
+                                <h3 class="text-center text-primary">Your Cart is empty</h3>
+                            </div>
+                            <% } %>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+
+
+    <!-- Back to top -->
+    <div class="btn-back-to-top" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="zmdi zmdi-chevron-up"></i>
+        </span>
+    </div>
+
+
+
+
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="/productDetails/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/productDetails/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/productDetails/vendor/bootstrap/js/popper.js"></script>
+    <script src="/productDetails/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/productDetails/vendor/select2/select2.min.js"></script>
+    <script>
+        $(".js-select2").each(function () {
+            $(this).select2({
+                minimumResultsForSearch: 20,
+                dropdownParent: $(this).next('.dropDownSelect2')
+            });
+        })
+    </script>
+
+    <!--===============================================================================================-->
+    <script src="/productDetails/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/productDetails/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script>
+
+
+        $('.btn-num-product-down').on('click',
+            function changeQuantity(event) {
+
+                event.preventDefault();
+
+                let productId = $(this).data('product-id');
+                let cartId = $(this).data('cart-id');
+                let count = $(this).data('count');
+                const quantity = $(this).data('value');
+                $.ajax({
+                    url: "/changeQuantity",
+                    data: {
+                        cart: cartId,
+                        product: productId,
+                        Count: count,
+                        Quantity: quantity,
+                    },
+                    method: "post",
+                    success: (response) => {
+                        if (response.success) {
+
+                    
+                            // Update quantity input field
+                            var numProduct = Number($(this).next().val());
+                            if (numProduct > 0) $(this).next().val(numProduct - 1);
+
+                            // Update total amount
+                            var sum=Number($(this).next().val());
+                            $(this).next().text("Rs"+response.productData);
+                            $("#sum").text("Rs" + total);
+                            var total = response.productData;
+                            $("#netamount").text("Rs" + total);
+
+                            var quanti=response.Quant;
+                           
+
+
+                            
+
+                        }
+                        if (response.quantity) {
+                            location.reload();
+                        }
+                    },
+                });
+            })
+        $('.btn-num-product-up').on('click',  function changeQuantity(event) {
+
+event.preventDefault();
+
+let productId = $(this).data('product-id');
+let cartId = $(this).data('cart-id');
+let count = $(this).data('count');
+const quantity = $(this).data('value');
+$.ajax({
+    url: "/changeQuantity",
+    data: {
+        cart: cartId,
+        product: productId,
+        Count: count,
+        Quantity: quantity,
+    },
+    method: "post",
+    success: (response) => {
+        if (response.success) {
+
+            // Update quantity input field
+            var numProduct = Number($(this).prev().val());
+            $(this).prev().val(numProduct + 1);
+
+            // Update total amount
+            var sum=Number($(this).next().val());
+            $(this).next().text("Rs"+response.productData);
+            $("#sum").text("Rs" + total);
+            var total = response.productData;
+            $("#netamount").text("Rs" + total);
+           
+
+        }
+        if (response.quantity) {
+            location.reload();
+        }
+    },
+});
+})
+        
+
+
+
+        $('.js-pscroll').each(function () {
+            $(this).css('position', 'relative');
+            $(this).css('overflow', 'hidden');
+            var ps = new PerfectScrollbar(this, {
+                wheelSpeed: 1,
+                scrollingThreshold: 1000,
+                wheelPropagation: false,
+            });
+
+            $(window).on('resize', function () {
+                ps.update();
+            })
+        });
+    </script>
+    <!--===============================================================================================-->
+    <script src="/productDetails/js/main.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>SignUp</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<!-- MATERIAL DESIGN ICONIC FONT -->
+		<link rel="stylesheet" href="/signup/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+		<!-- STYLE CSS -->
+		<link rel="stylesheet" href="/signup/css/style.css">
+		<link href="/images/logo final 2.jpeg" rel="icon">
+	</head>
+
+	<body>
+
+		<div class="wrapper" style="background-image: url('/signup/images/bg.jpeg');">
+			<div class="inner" style="opacity:.7;">
+				<div class="image-holder">
+					<img src="/signup/images/logofinal.jpeg" alt="">
+				</div>
+				<form action="/register" method="post" id="form" onsubmit="return submitform(event)">
+					<h3>Registration Form</h3>
+					
+					<div class="form-wrapper">
+						<input type="text" placeholder="Username" name="username" id="username" class="form-control" required>
+						<i class="zmdi zmdi-account"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="email" placeholder="Email Address" name="email" id="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$" class="form-control" required aria-required="true" 
+						oninvalid="this.setCustomValidity('Please enter a valid Email')">
+						<i class="zmdi zmdi-email"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="tel" placeholder="Mobile Number" name="mobile" id="mobile" class="form-control"  pattern="[0-9]{10}" required aria-required="true" 
+						oninvalid="this.setCustomValidity('Please enter a valid Phone Number')" >
+						<i class="zmdi zmdi-phone"></i>
+					</div>
+					<div id="error"> </div>
+
+					<div class="alert text-danger m-0 "> <p> <%= message %> </p></div>
+					<div class="form-wrapper">
+						<select type="text" placeholder="Gender" name="gender" class="form-control">
+							<option >
+								select
+							</option>
+							<option>
+								Men
+							</option>
+							<option>
+								Women
+							</option>
+							<option>
+								Other
+							</option>
+						
+						</select>
+						<i class="zmdi zmdi-male-alt"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Password" class="form-control" name="password" id="password" required >
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" placeholder="Confirm Password" class="form-control" name="cpassword" id="cpassword" required >
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div >
+						<input type="hidden"  name="status" >						
+					</div>
+					<button type="submit" >SignUp
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+					<div>
+						<h4 style=" margin: 20px 40px 30px 60px !important">Already have an account? <a href="/signin" style="text-decoration: none;">SignIn</a>
+						</h4>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="../javascripts/signupValidation.js"></script>
+	</body>
+</html>

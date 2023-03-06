@@ -1,0 +1,16 @@
+@media screen and (max-width:427px){
+    .icon_image{
+        width:5rem !important ;
+        height: 1rem !important;
+    }
+    .form-control{
+        width:5.5rem !important ;
+        height: 1rem !important;
+    }
+    .fa-search{
+        font-size:.8rem !important;
+    }
+    .fa-shopping-cart{
+        font-size: 1.5rem !important;
+    }
+}
