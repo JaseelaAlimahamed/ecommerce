@@ -139,7 +139,7 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">asdfghjklk</h1>
+            <h1 class="h3 mb-0 text-gray-800">Categories</h1>
             <a href="javascript:void(0);" data-toggle="modal" data-target="#addcategory"><button
                 class="btn btn-outline-dark">ADD</button></a>
             <ol class="breadcrumb">
@@ -218,7 +218,157 @@
          
           <div class="container">
               <h1 class="h3 mb-0 text-gray-800">Banner Carousal</h1>
-                    
+              <% if (banners[0]) { %>
+                <% banners.forEach(function(banner){%>
+    
+                
+                  <div class="content ml-4">
+                    <form class="form-horizontal " action="/admin/bannercarousal" method="post"
+                      enctype="multipart/form-data">
+    
+    
+    
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col control-label" for="product_name">Carousal Head1</label>
+                        <div class="col-lg-12">
+                          <input id="product_name" name="carousalhead1" class="form-control input-md" required=""
+                          value="<%= banner.carousalhead1 %>" type="text">
+    
+                        </div>
+                      </div>
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col control-label" for="product_name">Carousal Body1</label>
+                        <div class="col-lg-12">
+                          <input id="product_name" name="carousalbody1" class="form-control input-md" required=""
+                          value="<%= banner.carousalbody1 %>" type="text">
+    
+                        </div>
+                      </div>
+    
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col control-label" for="product_name">Carousal Head2</label>
+                        <div class="col-lg-12">
+                          <input id="product_name" name="carousalhead2" class="form-control input-md" required=""
+                          value="<%= banner.carousalhead2 %>" type="text">
+    
+                        </div>
+                      </div>
+    
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col control-label" for="product_name">Carousal Body2</label>
+                        <div class="col-lg-12">
+                          <input id="product_name" name="carousalbody2" class="form-control input-md" required=""
+                          value="<%= banner.carousalbody2 %>" type="text">
+    
+                        </div>
+                      </div>
+    
+                      <div class="form-group">
+                        <label class="col control-label" for="product_name">Carousal Head3</label>
+                        <div class="col-lg-12">
+                          <input id="product_name" name="carousalhead3" class="form-control input-md" required=""
+                          value="<%= banner.carousalhead3 %>" type="text">
+    
+                        </div>
+                      </div>
+    
+    
+    
+    
+                      <!-- Text input-->
+                      <div class="form-group">
+                        <label class="col control-label" for="product_name">Carousal Body3</label>
+                        <div class="col-lg-12">
+                          <input id="product_name" name="carousalbody3" class="form-control input-md" required=""
+                          value="<%= banner.carousalbody3 %>"type="text">
+    
+                        </div>
+                      </div>
+    
+                      <!-- File Button -->
+                      <div class="form-group">
+                        <label class="col control-label" for="filebutton">Carousal Image</label>
+                        <div class="col-lg-12">
+                          <input id="filebutton" name="carousalimage" class="input-file" type="file" required multiple>
+                        </div>
+                      </div>
+    
+                      <!-- Button -->
+                      <div class="form-group">
+                        <label class="col control-label" for="singlebutton"></label>
+                        <div class="col-lg-12">
+                          <button id="singlebutton" class="btn btn-primary" type="submit">UPDATE</button>
+                        </div>
+                      </div>
+    
+                    </form>
+                  </div>
+    
+                  <div class="container mt-5">
+                    <h1 class="h3 mb-0 text-gray-800">Banner Container</h1>
+                    <div class="content ">
+                      <form class="form-horizontal " action="/admin/bannercontainer" method="post"
+                        enctype="multipart/form-data">
+    
+                        <!-- Textarea -->
+                        <div class="form-group">
+                          <label class="col control-label" for="product_description">Container Text</label>
+                          <div class="col-lg-6">
+                            <textarea class="form-control" id="product_description" name="containertext"
+                              ><%= banner.containertext %></textarea>
+                          </div>
+                        </div>
+    
+                        <!-- File Button -->
+                        <div class="form-group">
+                          <label class="col control-label" for="filebutton">Container Image</label>
+                          <div class="col-lg-12">
+                            <input id="filebutton" name="containerimage" class="input-file" type="file" required multiple>
+                          </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="form-group">
+                          <label class="col control-label" for="singlebutton"></label>
+                          <div class="col-lg-12">
+                            <button id="singlebutton" class="btn btn-primary" type="submit">UPDATE</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+    
+                  <div class="container mt-5">
+                    <h1 class="h3 mb-0 text-gray-800">Sample Images</h1>
+                    <div class="content ml-4">
+                      <form class="form-horizontal " action="/admin/bannerimage" method="post"
+                        enctype="multipart/form-data">
+                        <!-- File Button -->
+                        <div class="form-group">
+                          <label class="col control-label" for="filebutton">image</label>
+                          <div class="col-lg-12">
+                            <input id="filebutton" name="image" class="input-file" type="file" required multiple>
+                          </div>
+                        </div>
+                        <!-- File Button -->
+                        <!-- Button -->
+                        <div class="form-group">
+                          <label class="col control-label" for="singlebutton"></label>
+                          <div class="col-lg-12">
+                            <button id="singlebutton" class="btn btn-primary" type="submit">UPDATE</button>
+                          </div>
+                        </div>
+    
+                      </form>
+                    </div>
+                  </div>
+                
+                <% }) %>
+               
+              <% } else { %>     
               <div class="content ml-4">
                 <form class="form-horizontal " action="/admin/bannercarousal" method="post"
                   enctype="multipart/form-data">
@@ -358,7 +508,7 @@
                   </form>
                 </div>
               </div>
-             
+             <% } %>
             </div>
          
               <!-- Modal  -->
