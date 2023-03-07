@@ -118,7 +118,10 @@ module.exports = {
                     }
                 );
             } else {
+                let files=["noFiles","noFiles","noFiles"];
+
                 const newbanner = new banner({
+                    
                     carousalhead1: req.body.carousalhead1,
                     carousalhead2: req.body.carousalhead2,
                     carousalhead3: req.body.carousalhead3,
@@ -126,9 +129,14 @@ module.exports = {
                     carousalbody2: req.body.carousalbody2,
                     carousalbody3: req.body.carousalbody3,
                     carousalimage: image,
+                    containerimage:["No Files"] ,
+                    containertext: "No Files",
+                    image:files,
+
+
+
                 });
                 await newbanner.save();
-                console.log("hiiiiiiii saved")
             }
             res.redirect('/admin/categories');
         } catch (err) {
