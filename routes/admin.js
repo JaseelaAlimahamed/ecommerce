@@ -32,11 +32,11 @@ router.get('/deletecategory/:id',session.adminSession,adminController.deleteCate
 
 router.get('/Activecategory/:id',session.adminSession,adminController.ActiveCategory);
 
-router.post('/bannercarousal/:id',session.adminSession,upload.array('carousalimage',3),adminController.bannerUpdateCarousal)
+router.post('/bannercarousal',session.adminSession,upload.array('carousalimage',3),adminController.bannerUpdateCarousal)
 
-router.post("/bannercontainer/:id",session.adminSession,upload.array('containerimage',1),adminController.bannerUpdateContainer)
+router.post("/bannercontainer",session.adminSession,upload.array('containerimage',1),adminController.bannerUpdateContainer)
 
-router.post('/bannerimage/:id',session.adminSession,upload.array('image',3),adminController.bannerUpdateImage);
+router.post('/bannerimage',session.adminSession,upload.array('image',3),adminController.bannerUpdateImage);
 // sales reprt
 router.get('/download/:year/:month',session.adminSession,exporter.exportOrders)
 // products 

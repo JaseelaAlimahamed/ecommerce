@@ -98,48 +98,98 @@ module.exports = {
         res.redirect('/admin/categories')
     },
     bannerUpdateCarousal: async (req, res) => {
-
-        let image = req.files.map((obj) => {
-            return obj?.filename
-        });
-        await banner.updateOne({ _id: req.params.id }, {
-            $set: {
-                carousalhead1: req.body.carousalhead1,
-                carousalhead2: req.body.carousalhead2,
-                carousalhead3: req.body.carousalhead3,
-
-                carousalbody1: req.body.carousalbody1,
-                carousalbody2: req.body.carousalbody2,
-                carousalbody3: req.body.carousalbody3,
-                carousalimage: image,
+        try {
+            const image = req.files.map((obj) => obj?.filename);
+            const bannerexist = await banner.find();
+            console.log(bannerexist[0]);
+            if (bannerexist[0]) {
+                await banner.updateOne(
+                    {},
+                    {
+                        $set: {
+                            carousalhead1: req.body.carousalhead1,
+                            carousalhead2: req.body.carousalhead2,
+                            carousalhead3: req.body.carousalhead3,
+                            carousalbody1: req.body.carousalbody1,
+                            carousalbody2: req.body.carousalbody2,
+                            carousalbody3: req.body.carousalbody3,
+                            carousalimage: image,
+                        },
+                    }
+                );
+            } else {
+                const newbanner = new banner({
+                    carousalhead1: req.body.carousalhead1,
+                    carousalhead2: req.body.carousalhead2,
+                    carousalhead3: req.body.carousalhead3,
+                    carousalbody1: req.body.carousalbody1,
+                    carousalbody2: req.body.carousalbody2,
+                    carousalbody3: req.body.carousalbody3,
+                    carousalimage: image,
+                });
+                await newbanner.save();
+                console.log("hiiiiiiii saved")
             }
-        });
-
-
-        res.redirect('/admin/categories')
+            res.redirect('/admin/categories');
+        } catch (err) {
+            // handle error
+           
+            res.status(500).send('Internal Server Error');
+        }
     },
     bannerUpdateContainer: async (req, res) => {
-        let image = req.files.map((obj) => {
-            return obj?.filename
-        })
-        await banner.updateOne({ _id: req.params.id }, {
-            $set: {
-                containerimage: image,
-                containertext: req.body.containertext,
+        try {
+            let image = req.files.map((obj) => {
+                return obj?.filename
+            })
+            const bannerexist = await banner.find();
+            if (bannerexist[0]) {
+                await banner.updateOne(
+                    {}, {
+                    $set: {
+                        containerimage: image,
+                        containertext: req.body.containertext,
+                    }
+                });
+            } else {
+                const newbanner = new banner({
+                    containerimage: image,
+                    containertext: req.body.containertext,
+                });
+                await newbanner.save();
             }
-        });
-        res.redirect('/admin/categories')
+            res.redirect('/admin/categories')
+        } catch (err) {
+            // handle error
+            
+            res.status(500).send('Internal Server Error');
+        }
     },
     bannerUpdateImage: async (req, res) => {
-        let image = req.files.map((obj) => {
-            return obj?.filename
-        })
-        await banner.updateOne({ _id: req.params.id }, {
-            $set: {
-                image: image
-            }
-        });
-        res.redirect('/admin/categories')
+        try {
+            let image = req.files.map((obj) => {
+                return obj?.filename
+            })
+            const bannerexist = await banner.find();
+            if (bannerexist[0]) {
+                await banner.updateOne(
+                    {}, {
+                    $set: {
+                        image: image
+                    }
+                }
+                )
+            } else {
+                const newbanner = new banner({
+                    image: image
+                });
+                await newbanner.save();
+            } res.redirect('/admin/categories')
+        } catch (err) {
+            // handle error
+            
+            res.status(500).send('Internal Server Error');
+        }
     },
     couponRender: async (req, res) => {
         const couponData = await coupon.find()
@@ -204,14 +254,14 @@ module.exports = {
         }
 
     },
-    deleteCoupon:async (req,res)=>{
+    deleteCoupon: async (req, res) => {
         const id = req.params.id;
-        await coupon.updateOne({_id:id},{$set:{delete:false}})
+        await coupon.updateOne({ _id: id }, { $set: { delete: false } })
         res.redirect('/admin/coupons');
     },
-    restoreCoupon:async(req,res)=>{
+    restoreCoupon: async (req, res) => {
         const id = req.params.id;
-        await coupon.updateOne({_id:id},{$set:{delete:true}});
+        await coupon.updateOne({ _id: id }, { $set: { delete: true } });
         res.redirect("/admin/coupons");
     },
 
